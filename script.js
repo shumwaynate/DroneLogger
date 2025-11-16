@@ -157,14 +157,21 @@ async function loadLogFromSheet() {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
 
-    const tbody = document.getElementById("logTable");
+    const tbody = document.getElementById("logTableBody");
     tbody.innerHTML = "";
 
-    data.forEach(entry => {
-      const row = document.createElement("tr");
+    let totalMinutes = 0;
 
+    data.forEach(entry => {
+      // ---- SUM DURATION ----
+      if (entry.Duration) {
+        const min = parseDuration(entry.Duration);
+        totalMinutes += min;
+      }
+
+      // ---- BUILD TABLE ROW WITHOUT TIMESTAMP ----
+      const row = document.createElement("tr");
       row.innerHTML = `
-        // <td>${entry.Timestamp || ""}</td> remove timestamp column
         <td>${entry.Drone || ""}</td>
         <td>${entry.Site || ""}</td>
         <td>${entry.Duration || ""}</td>
@@ -172,12 +179,34 @@ async function loadLogFromSheet() {
         <td>${entry.End || ""}</td>
         <td>${entry.Comments || ""}</td>
       `;
-
       tbody.appendChild(row);
     });
+
+    // ---- UPDATE TOTAL TIME DISPLAY ----
+    const hours = (totalMinutes / 60).toFixed(1);
+    document.getElementById("totalTime").innerText =
+      `Total Flight Time: ${hours} hours`;
 
   } catch (err) {
     console.error("Error loading logs:", err);
   }
 }
+
+//------------------------------------------------
+// DURATION PARSER (returns minutes for total calculation)
+//------------------------------------------------
+function parseDuration(text) {
+  text = text.toLowerCase().trim();
+
+  let minutes = 0;
+
+  const hourMatch = text.match(/(\d+)\s*h/);
+  const minMatch = text.match(/(\d+)\s*m/);
+
+  if (hourMatch) minutes += parseInt(hourMatch[1], 10) * 60;
+  if (minMatch) minutes += parseInt(minMatch[1], 10);
+
+  return minutes;
+}
+
 
