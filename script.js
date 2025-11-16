@@ -157,7 +157,7 @@ async function loadLogFromSheet() {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
 
-    const tbody = document.getElementById("logTableBody");
+    const tbody = document.getElementById("logTable");
     tbody.innerHTML = "";
 
     data.forEach(entry => {
