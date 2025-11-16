@@ -13,7 +13,7 @@ const SITES  = ["Lot A", "Lot B", "Perimeter South", "Warehouse Roof", "Gate 2",
 //------------------------------------------------
 // GOOGLE APPS SCRIPT ENDPOINT (FILL IN LATER)
 //------------------------------------------------
-let SHEET_URL = "https://script.google.com/macros/s/AKfycbzolU1Pe-dKq3pM_Sf6ri9l4ekxGP9sFIxlYwFFGuhUe2Wn9RBL1AvElWRUmI_niHek/exec"; // <-- You will paste your deployed Google Script URL here
+let SHEET_URL = "https://dronelognathan.nateshumway1.workers.dev/"; // <-- You will paste your deployed Google Script URL here
 
 
 //------------------------------------------------
