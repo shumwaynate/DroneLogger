@@ -152,28 +152,25 @@ async function submitEntry() {
 //------------------------------------------------
 // LOAD LOG FROM GOOGLE SHEET
 //------------------------------------------------
-async function loadLogFromSheet() {
-    if (!SHEET_URL) return;
+function loadLogFromSheet() {
+  fetch(SHEET_URL)
+    .then(r => r.json())
+    .then(data => {
+      let tbody = document.getElementById("logTableBody");
+      tbody.innerHTML = "";
 
-    let res = await fetch(SHEET_URL);
-    let data = await res.json();
-
-    const body = document.getElementById("logBody");
-    body.innerHTML = "";
-
-    data.forEach(entry => {
+      data.forEach(entry => {
         let row = document.createElement("tr");
-
         row.innerHTML = `
-            <td>${entry.timestamp}</td>
-            <td>${entry.drone}</td>
-            <td>${entry.site}</td>
-            <td>${entry.duration}</td>
-            <td>${entry.start}</td>
-            <td>${entry.end}</td>
-            <td>${entry.comments}</td>
+          <td>${entry.Timestamp}</td>
+          <td>${entry.Drone}</td>
+          <td>${entry.Site}</td>
+          <td>${entry.Duration}</td>
+          <td>${entry.Start}</td>
+          <td>${entry.End}</td>
+          <td>${entry.Comments}</td>
         `;
-
-        body.appendChild(row);
+        tbody.appendChild(row);
+      });
     });
 }
