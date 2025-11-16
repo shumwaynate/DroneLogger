@@ -164,7 +164,7 @@ async function loadLogFromSheet() {
       const row = document.createElement("tr");
 
       row.innerHTML = `
-        <td>${entry.Timestamp || ""}</td>
+        // <td>${entry.Timestamp || ""}</td> remove timestamp column
         <td>${entry.Drone || ""}</td>
         <td>${entry.Site || ""}</td>
         <td>${entry.Duration || ""}</td>
