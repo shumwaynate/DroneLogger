@@ -157,7 +157,7 @@ async function loadLogFromSheet() {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
 
-    const tbody = document.getElementById("logTable");
+    const tbody = document.getElementById("logTableBody");
     tbody.innerHTML = "";
 
     let totalMinutes = 0;
