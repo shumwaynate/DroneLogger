@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan's Drone Log</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Nathan's Drone Log</h1>
+    </header>
+
+    <main>
+        <!-- LOGIN BOX -->
+        <section id="loginSection" class="card">
+            <h2>Login</h2>
+            <input type="password" id="loginPassword" placeholder="Enter password">
+            <button id="loginBtn">Login</button>
+            <p id="loginError" class="error"></p>
+        </section>
+
+        <!-- FORM SECTION -->
+        <section id="formSection" class="card hidden">
+            <h2>New Flight Entry</h2>
+
+            <label>Drone</label>
+            <select id="droneSelect"></select>
+
+            <label>Location</label>
+            <select id="siteSelect"></select>
+
+            <label>Time Flown</label>
+            <input id="durationInput" type="text" placeholder="e.g. 25, 1h30m, 45 minutes">
+
+            <label>Comments</label>
+            <textarea id="commentsInput" placeholder="Optional notes"></textarea>
+
+            <button id="submitBtn">Submit Entry</button>
+            <p id="submitStatus" class="status"></p>
+        </section>
+
+        <!-- VIEW-ONLY WARNING -->
+        <section id="viewOnlyBanner" class="card hidden viewOnly">
+            <p>View-only access: You cannot submit new entries.</p>
+        </section>
+
+        <!-- LOG TABLE -->
+        <section id="logSection" class="card hidden">
+            <h2>Flight Log</h2>
+            <table id="logTable">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Drone</th>
+                        <th>Location</th>
+                        <th>Duration</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody id="logBody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
