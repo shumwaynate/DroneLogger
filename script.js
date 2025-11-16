@@ -152,25 +152,32 @@ async function submitEntry() {
 //------------------------------------------------
 // LOAD LOG FROM GOOGLE SHEET
 //------------------------------------------------
-function loadLogFromSheet() {
-  fetch(SHEET_URL)
-    .then(r => r.json())
-    .then(data => {
-      let tbody = document.getElementById("logTableBody");
-      tbody.innerHTML = "";
+async function loadLogFromSheet() {
+  try {
+    const res = await fetch(SHEET_URL);
+    const data = await res.json();
 
-      data.forEach(entry => {
-        let row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${entry.Timestamp}</td>
-          <td>${entry.Drone}</td>
-          <td>${entry.Site}</td>
-          <td>${entry.Duration}</td>
-          <td>${entry.Start}</td>
-          <td>${entry.End}</td>
-          <td>${entry.Comments}</td>
-        `;
-        tbody.appendChild(row);
-      });
+    const tbody = document.getElementById("logTableBody");
+    tbody.innerHTML = "";
+
+    data.forEach(entry => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${entry.Timestamp || ""}</td>
+        <td>${entry.Drone || ""}</td>
+        <td>${entry.Site || ""}</td>
+        <td>${entry.Duration || ""}</td>
+        <td>${entry.Start || ""}</td>
+        <td>${entry.End || ""}</td>
+        <td>${entry.Comments || ""}</td>
+      `;
+
+      tbody.appendChild(row);
     });
+
+  } catch (err) {
+    console.error("Error loading logs:", err);
+  }
 }
+
