@@ -149,3 +149,50 @@ table th {
 .logTable tbody tr:hover {
     background-color: #eef7ff;
 }
+
+/* Scrollable wrapper */
+.tableWrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 450px; /* vertical scroll appears if too tall */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Table styling */
+.logTable {
+    width: 100%;
+    min-width: 800px;  /* Forces horizontal scroll on small screens */
+    border-collapse: collapse;
+}
+
+/* Freeze header */
+.logTable thead th {
+    position: sticky;
+    top: 0;
+    background: #f3f3f3;
+    z-index: 10;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Cells */
+.logTable td,
+.logTable th {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* prevents columns from squishing */
+}
+
+/* Alternating row colors */
+.logTable tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+.logTable tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hover highlight */
+.logTable tbody tr:hover {
+    background-color: #eef7ff;
+}

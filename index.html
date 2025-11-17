@@ -49,23 +49,31 @@
         <!-- LOG TABLE -->
         <section id="logSection" class="card hidden">
             <h2>Flight Log</h2>
+
             <div id="totalTime" style="text-align:left; font-weight:bold; padding:8px 10px;">
                 Total Flight Time: 0.0 hours
             </div>
-            <table id="logTable">
-                <thead>
-                    <tr>
-                        <th>Drone</th>
-                        <th>Location</th>
-                        <th>Duration</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody id="logTableBody"></tbody>
-            </table>
+
+            <!-- WRAPPER ADDED -->
+            <div class="tableWrapper">
+                <table class="logTable">
+                    <thead>
+                        <tr>
+                            <th>Drone</th>
+                            <th>Location</th>
+                            <th>Duration</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- tbody FIXED: correct ID -->
+                    <tbody id="logTableBody"></tbody>
+                </table>
+            </div>
         </section>
+
     </main>
 
     <script src="script.js"></script>
