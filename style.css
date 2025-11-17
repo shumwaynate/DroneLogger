@@ -73,3 +73,79 @@ table th, table td {
 table th {
     background: #e5e5e5;
 }
+
+.tableWrapper {
+    max-width: 100%;
+    overflow-x: auto;    /* horizontal scroll */
+    overflow-y: auto;    /* vertical scroll */
+    max-height: 400px;   /* chart will scroll vertically after 400px */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Optional: improve mobile scrolling */
+.tableWrapper::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.logTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* forces horizontal scroll on small screens */
+}
+
+.logTable th,
+.logTable td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* keeps cells from wrapping */
+}
+
+/* Makes the wrapper scrollable */
+.tableWrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Basic table formatting */
+.logTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+/* Freeze header */
+.logTable thead th {
+    position: sticky;
+    top: 0;
+    background: #f5f5f5;   /* Light gray background */
+    z-index: 10;           /* Keeps it above table body */
+    border-bottom: 2px solid #ccc;
+}
+
+/* Table cell formatting */
+.logTable th,
+.logTable td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+/* Alternating row shading */
+.logTable tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.logTable tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Darker hover effect */
+.logTable tbody tr:hover {
+    background-color: #eef7ff;
+}
