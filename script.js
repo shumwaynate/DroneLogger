@@ -1,14 +1,14 @@
 //------------------------------------------------
 // HARD CODED PASSWORDS
 //------------------------------------------------
-const FULL_ACCESS_PASSWORD = "1234";
+const FULL_ACCESS_PASSWORD = "drone1";
 const VIEW_ONLY_PASSWORD = "access";
 
 //------------------------------------------------
 // DROPDOWN OPTIONS — EDIT THESE ANY TIME
 //------------------------------------------------
 const DRONES = ["Security Drone", "DJI Mini 3", "DJI Air 3", "Warehouse Drone", "Other"];
-const SITES  = ["Lot A", "Lot B", "Perimeter South", "Warehouse Roof", "Gate 2", "Other"];
+const SITES  = ["Lot M", "Lot F", "Perimeter South", "Warehouse Roof", "Gate 2", "Other"];
 
 //------------------------------------------------
 // GOOGLE APPS SCRIPT ENDPOINT (FILL IN LATER)
